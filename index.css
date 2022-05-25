@@ -18,3 +18,7 @@ body{
     color: white;
 
 }
+#not-found{
+    display: flex;
+    justify-content: center;
+}
