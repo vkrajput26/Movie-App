@@ -92,6 +92,8 @@ let Details=document.getElementById("Movie-Details")
   function adding(res){
     console.log(res.imdbRating)
     let box2=document.createElement("div")
+    box2.style.color="white"
+    box2.setAttribute("id","movieDetailsBox")
 
     let Poster=document.createElement("img");
     Poster.src=res.Poster;

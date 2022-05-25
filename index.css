@@ -22,3 +22,11 @@ body{
     display: flex;
     justify-content: center;
 }
+#movieDetailsBox{
+   border: 1px solid yellow;
+   background-color: rgb(178, 185, 185);
+   width: 25%;
+   margin-top: -344px;
+   margin-left: 400px;
+   gap: 14px;
+}
