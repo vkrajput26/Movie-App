@@ -16,6 +16,11 @@ function movies(){
     })
     .catch(function(err){
         console.log(err)
+        let not=document.getElementById("not-found")
+        let img=document.createElement("img");
+        img.src="https://media2.giphy.com/media/C21GGDOpKT6Z4VuXyn/200w.webp?cid=ecf05e475iqeq3h19kd0zqx1w6y1gpg9yog61xigjj89cimk&rid=200w.webp&ct=g"
+   
+        not.append(img)
     })
 }
 
