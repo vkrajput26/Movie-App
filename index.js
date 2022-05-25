@@ -118,7 +118,19 @@ let Details=document.getElementById("Movie-Details")
 
     let rating=document.createElement("p");
     rating.innerText=`Rating ${res.imdbRating}`;
-    box2.append(name,actor,director,lang,date,rating)
+    var tag=document.createElement("img")
+    if(res.imdbRating>8.5)
+    {
+    
+        tag.src="https://media3.giphy.com/media/lRjB2wdM1ZQZ0tRV6o/200w.webp?cid=ecf05e472tmb7jfnjld9tlvqbu9zempb0ind7djjd899nlpf&rid=200w.webp&ct=s"
+    }
+    else
+    {
+     
+        tag.src="https://media3.giphy.com/media/lzBOOdWzJNkIIlBMiE/200w.webp?cid=ecf05e47hcfjxzsimgqpny2v4cjthgi6qnromoqpyfr18u4t&rid=200w.webp&ct=s"
+
+    }
+    box2.append(name,actor,director,lang,date,rating,tag)
     
     Details.append(Poster,box2)
   }
