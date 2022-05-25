@@ -44,10 +44,10 @@ function movies(){
             let image=document.createElement("img")
             image.src=el.Poster
 
-            let title=document.createElement("p")
+            var title=document.createElement("p")
             title.innerText=el.Title;
             title.addEventListener("click",function(){
-                myfun()
+                myfun(el)
             })
             title.style.textAlign="center"
             title.setAttribute("id","title")
@@ -64,8 +64,57 @@ function movies(){
         })
     
     }
+//Movie-Details
 
-  function  myfun()
+
+
+let Details=document.getElementById("Movie-Details")
+
+
+  function  myfun(data)
   {
-      console.log("myfun")
+      let value=(data.Title)
+      console.log(value)
+    let link=`https://www.omdbapi.com/?apikey=9b3377fb&t=${value}`;
+      fetch(link).then(function(res){
+          return res.json();
+      })
+      .then(function(res){
+        //  console.log(res)
+          adding(res)
+      })
+      .catch(function(err){
+          console.log("err",err)
+      })
+
+  }
+
+  function adding(res){
+    console.log(res.imdbRating)
+    let box2=document.createElement("div")
+
+    let Poster=document.createElement("img");
+    Poster.src=res.Poster;
+
+    let name=document.createElement("p")
+    name.innerText=res.Title;
+
+    let actor=document.createElement("p")
+    actor.innerText=res.Actors
+    console.log(actor)
+
+    let director=document.createElement("p");
+    director.innerText=res.Director;
+
+    let lang=document.createElement("p");
+    lang.innerText=res.Language;
+
+    let date=document.createElement("p")
+    date.innerText=res.Released;
+
+    let rating=document.createElement("p");
+    rating.innerText=res.Rating;
+    box2.append(name,actor,director,lang,date,rating)
+    
+    Details.append(Poster,box2)
   }
