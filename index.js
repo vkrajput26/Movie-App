@@ -29,9 +29,13 @@ function movies(){
 
             let title=document.createElement("p")
             title.innerText=el.Title;
+            title.style.textAlign="center"
+            title.setAttribute("id","title")
 
             let year=document.createElement("p")
             year.innerText=el.Year
+            year.style.textAlign="center"
+            year.setAttribute("id","year")
 
             box.append(image,title,year)
             // document.getElementById("container").append(box)
