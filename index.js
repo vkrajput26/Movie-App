@@ -73,6 +73,7 @@ let Details=document.getElementById("Movie-Details")
 
   function  myfun(data)
   {
+      container.innerHTML=null
       let value=(data.Title)
       console.log(value)
     let link=`https://www.omdbapi.com/?apikey=9b3377fb&t=${value}`;
@@ -80,7 +81,7 @@ let Details=document.getElementById("Movie-Details")
           return res.json();
       })
       .then(function(res){
-        //  console.log(res)
+          console.log(res)
           adding(res)
       })
       .catch(function(err){
@@ -90,32 +91,33 @@ let Details=document.getElementById("Movie-Details")
   }
 
   function adding(res){
+      Details.innerHTML=null
     console.log(res.imdbRating)
     let box2=document.createElement("div")
     box2.style.color="white"
     box2.setAttribute("id","movieDetailsBox")
 
     let Poster=document.createElement("img");
-    Poster.src=res.Poster;
+    Poster.src= res.Poster;
 
     let name=document.createElement("p")
-    name.innerText=res.Title;
+    name.innerText=`Title :- ${res.Title}`;
 
     let actor=document.createElement("p")
-    actor.innerText=res.Actors
+    actor.innerText=`Actors :-${res.Actors}`
     console.log(actor)
 
     let director=document.createElement("p");
-    director.innerText=res.Director;
+    director.innerText=`Director :-${res.Director}`;
 
     let lang=document.createElement("p");
-    lang.innerText=res.Language;
+    lang.innerText=`Language :-${res.Language}`;
 
     let date=document.createElement("p")
-    date.innerText=res.Released;
+    date.innerText=`Released-Date :-${res.Released}`;
 
     let rating=document.createElement("p");
-    rating.innerText=res.Rating;
+    rating.innerText=`Rating ${res.imdbRating}`;
     box2.append(name,actor,director,lang,date,rating)
     
     Details.append(Poster,box2)
